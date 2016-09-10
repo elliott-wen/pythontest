@@ -28,8 +28,8 @@
       <file leaf-file-name="scheduler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scheduler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8161765">
-              <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.52205884">
+              <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -438,8 +438,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8161765">
-          <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.52205884">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>

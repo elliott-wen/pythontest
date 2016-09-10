@@ -36,7 +36,8 @@ class OpenFlowServerProtocol(Protocol):
                 if available_bytes < 8:
                     logging.debug("Waiting Header")
                     return
-                parsed_header = struct.unpack("bbHI", self.data_buffer[:8])
+                parsed_header = struct.unpack("<bbHI", self.data_buffer[:8])
+                logging.debug("Version:%d Type:%d Length:%d ID:%d"%parsed_header)
                 self.pending_bytes = parsed_header[2]
 
             if self.pending_bytes > available_bytes:
@@ -75,7 +76,7 @@ class OpenFlowService():
 
     def handle_openflow_msg(self, msg):
         openflow_header = struct.unpack("<bbHI", msg[:8])
-        logging.debug("Version:%d Type:%d Length:%d ID:%d"%openflow_header)
+
         #The type, if the type is hello, or echo.
         #If other, then schedule it
 
