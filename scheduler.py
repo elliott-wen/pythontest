@@ -78,16 +78,14 @@ class OpenFlowService():
         openflow_header = struct.unpack(">bbHI", msg[:8])
         type = openflow_header[1]
         xid = openflow_header[3]
+        version = openflow_header[0]
+        length = openflow_header[2]
         if type == 0:
             logging.debug("It is a hello")
             conn.transport.write(str(msg))
         elif type == 2:
             logging.debug("It is a echo request")
-            reply_header = []
-            for item in openflow_header:
-                reply_header.extend(item)
-            reply_header[1] = 3
-            reply_msg = struct.pack(">bbHI", reply_header)
+            reply_msg = struct.pack(">bbHI", [version, 3, length, xid])
             conn.transport.write(reply_msg)
 
 
