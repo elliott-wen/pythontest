@@ -36,7 +36,7 @@ class OpenFlowServerProtocol(Protocol):
                 if available_bytes < 8:
                     logging.debug("Waiting Header")
                     return
-                parsed_header = struct.unpack("<bbHI", self.data_buffer[:8])
+                parsed_header = struct.unpack(">bbHI", self.data_buffer[:8])
                 logging.debug("Version:%d Type:%d Length:%d ID:%d"%parsed_header)
                 self.pending_bytes = parsed_header[2]
 
