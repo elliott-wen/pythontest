@@ -85,7 +85,7 @@ class OpenFlowService():
             conn.transport.write(str(msg))
         elif type == 2:
             logging.debug("It is a echo request")
-            reply_msg = struct.pack(">bbHI", [version, 3, length, xid])
+            reply_msg = struct.pack(">bbHI", version, 3, length, xid)
             conn.transport.write(reply_msg)
 
 
