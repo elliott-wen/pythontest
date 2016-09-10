@@ -74,7 +74,7 @@ class OpenFlowService():
 
 
     def handle_openflow_msg(self, msg):
-        openflow_header = struct.unpack(">bbHI", msg[:8])
+        openflow_header = struct.unpack("<bbHI", msg[:8])
         logging.debug("Version:%d Type:%d Length:%d ID:%d"%openflow_header)
         #The type, if the type is hello, or echo.
         #If other, then schedule it
