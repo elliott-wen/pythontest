@@ -45,7 +45,7 @@ class OpenFlowServerProtocol(Protocol):
                 return
             openflow_msg = self.data_buffer[:self.pending_bytes]
             self.data_buffer = self.data_buffer[self.pending_bytes:]
-            self.factory.handle_openflow_msg(openflow_msg)
+            self.factory.handle_openflow_msg(openflow_msg, self)
             self.pending_bytes = 0;
 
 
@@ -74,11 +74,16 @@ class OpenFlowService():
         logging.info("connection failed:", reason)
 
 
-    def handle_openflow_msg(self, msg):
-        openflow_header = struct.unpack("<bbHI", msg[:8])
+    def handle_openflow_msg(self, msg, conn):
+        openflow_header = struct.unpack(">bbHI", msg[:8])
+        type = openflow_header[1]
+        xid = openflow_header[3]
+        if type == 0:
+            logging.debug("It is a hello")
+            conn.transport.write(msg)
 
-        #The type, if the type is hello, or echo.
-        #If other, then schedule it
+
+
 
     def getOpenFlowServerFactory(self):
         f = ServerFactory()
