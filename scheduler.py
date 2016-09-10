@@ -80,7 +80,7 @@ class OpenFlowService():
         xid = openflow_header[3]
         if type == 0:
             logging.debug("It is a hello")
-            conn.transport.write(msg)
+            conn.transport.write(str(msg))
 
 
 
