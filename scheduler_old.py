@@ -263,8 +263,6 @@ class OpenFlowService():
         self.write_switch(str(msg), switch)
         #self.tunnel_to_switch(msg, dpid, type)
 
-    #
-
     def handle_switch_openflow_msg(self, msg, conn):
         openflow_header = struct.unpack(">bbHI", msg[:8])
         type = openflow_header[1]
@@ -323,7 +321,6 @@ class OpenFlowService():
             #         logging.error("Tunnel Not supposed to be None when sending type 6")
             #         exit(1)
             #     self.write_tunnel(dpid, str(msg), tunnel)
-
 
         elif type == 10:
             # logging.debug("Switch sends packet_in to scheduler")
